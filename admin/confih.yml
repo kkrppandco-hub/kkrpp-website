@@ -1,0 +1,69 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/kkrppandco-website
+  branch: main
+  base_url: https://kkrppandco.com
+  auth_endpoint: /api/auth
+
+media_folder: "images"
+public_folder: "/images"
+
+site_url: https://www.kkrppandco.com
+display_url: https://www.kkrppandco.com
+
+collections:
+  - name: "posts"
+    label: "Insights & Articles"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "Make it keyword-rich e.g. How to file GST returns in Bangalore 2025"
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Income Tax", value: "tax" }
+          - { label: "GST", value: "gst" }
+          - { label: "Audit", value: "audit" }
+          - { label: "NRI Services", value: "nri" }
+          - { label: "Business Advisory", value: "advisory" }
+          - { label: "General", value: "general" }
+
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        default: "KKRPP & Co."
+
+      - label: "Meta Description"
+        name: "description"
+        widget: "text"
+        hint: "150-160 characters for Google search results"
+        required: false
+
+      - label: "Focus Keyword"
+        name: "keyword"
+        widget: "string"
+        hint: "Main keyword e.g. GST filing Bangalore"
+        required: false
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        hint: "Write your full article here"
+
+      - label: "Published"
+        name: "published"
+        widget: "boolean"
+        default: true
+        hint: "Uncheck to save as draft"
